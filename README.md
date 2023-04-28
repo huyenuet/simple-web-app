@@ -11,8 +11,12 @@ To activate the virtual environment we just created, run the command below:
 
 `source env/bin/activate`
 
-# Install SQLAlchemy
+# Install dependencies
+Now, let’s install the necessary packages for our project. We will use Uvicorn as our ASGI development server, Jinja2 as our template engine, and python-multipart to receive form fields from the client:
+`pip install fastapi uvicorn jinja2 python-multipart`
+
+## Install SQLAlchemy
 `pip install sqlalchemy`
 
-# install mysql
+## install mysql
 `pip install mysql-connector-python`
