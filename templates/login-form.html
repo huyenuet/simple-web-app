@@ -2,17 +2,40 @@
 <html>
 <head>
 	<title>Login Form</title>
+
 </head>
 <body>
-	<h1>Login Form</h1>
-	<form action="/todo: put the Login endpoint here" method="POST" enctype="application/x-www-form-urlencoded">
+	<h2>Login Form</h2>
+	<!-- <form id="loginForm" method="POST" action="/login" onsubmit="event.preventDefault(); submitLoginForm();"> -->
+	<form id="loginForm" method="POST" action="/login">
 		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" required><br><br>
-
+		<input type="text" id="username" name="username"><br><br>
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required><br><br>
-
-		<input type="submit" value="Login">
+		<input type="password" id="password" name="password"><br><br>
+		<input type="hidden" name="next" value="/home">
+		<input type="submit" value="Submit">
 	</form>
+	<script>
+        const loginForm = document.querySelector('#loginForm');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(loginForm);
+            const response = await fetch('/login', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                window.location.href = data.redirect_url;
+            } else {
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = data.message;
+                loginForm.appendChild(errorMessage);
+            }
+        });
+    </script>
 </body>
 </html>
