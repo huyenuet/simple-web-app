@@ -1,12 +1,15 @@
-Package                Version
----------------------- -------
-fastapi                0.95.1
-Jinja2                 3.1.2
-mysql-connector-python 8.0.33
-pydantic               1.10.7
-PyJWT                  2.6.0
-python-multipart       0.0.6
-SQLAlchemy             2.0.11
-starlette              0.26.1
-typing_extensions      4.5.0
-uvicorn                0.21.1
+fastapi==0.95.1
+FastAPI-SQLAlchemy==0.2.1
+Jinja2==3.1.2
+mysql-connector-python==8.0.33
+pydantic==1.10.7
+PyJWT==2.6.0
+python-multipart==0.0.6
+SQLAlchemy==2.0.11
+starlette==0.26.1
+typing_extensions==4.5.0
+uvicorn==0.21.1
+greenlet==1.1.2
+h11==0.12.0
+MarkupSafe==2.0.1
+protobuf==3.18.0
