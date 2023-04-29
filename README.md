@@ -23,5 +23,10 @@ Now, let’s install the necessary packages for our project. We will use Uvicorn
 
 # Set the root password environment variable in your shell. 
 You can do this by running the following command in your terminal:
-`export DB_PASSWORD="yourpassword"`
+`export DB_PASSWORD="yourpassword"` (Do not add any spaces around equal sign)
 
+# Install PyJWT to generate access token
+`pip install PyJWT`
+
+# start the server
+`uvicorn main:app --reload`
