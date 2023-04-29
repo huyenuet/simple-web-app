@@ -1,14 +1,10 @@
 from typing import List
-
 from fastapi import Depends, FastAPI, HTTPException, Request, Form
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
-
 from sqlalchemy.orm import Session
-
 import crud, models, schemas
-
 from database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
@@ -16,7 +12,6 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
-# Dependency
 def get_db():
     db = SessionLocal()
     try:
@@ -54,10 +49,9 @@ async def login(
     if not (fake_hashed_password == db_user.hashed_password):
         return JSONResponse({"success": False, "message": "Invalid login credentials", "redirect_url": None})
     
-    # response = RedirectResponse(url=next, status_code=302)
     return JSONResponse({"success": True, "message": "Login successful", "redirect_url": next})
 
 
 @app.get('/home', response_class=HTMLResponse)
 async def get_home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("home.html", {"request": request})
