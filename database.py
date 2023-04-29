@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 
-#remember to expert DB_PASSWORD = "yourpass" before starting uvicorn server. 
+#remember to export DB_PASSWORD = "yourpass" before starting uvicorn server. 
 # If not, this code line will return None
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
