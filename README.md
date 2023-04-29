@@ -20,3 +20,8 @@ Now, let’s install the necessary packages for our project. We will use Uvicorn
 
 ## install mysql
 `pip install mysql-connector-python`
+
+# Set the root password environment variable in your shell. 
+You can do this by running the following command in your terminal:
+`export DB_PASSWORD="yourpassword"`
+
